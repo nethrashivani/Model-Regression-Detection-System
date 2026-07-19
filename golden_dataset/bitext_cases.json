@@ -1,0 +1,602 @@
+[
+  {
+    "id": "billing-0001",
+    "input": "i expect a compensation of ££89.5",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to check the status of a refund already requested.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "track_refund"
+  },
+  {
+    "id": "billing-0002",
+    "input": "how can i ask for refunds of money",
+    "expected_category": "billing",
+    "expected_summary": "Customer is requesting a refund.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "get_refund"
+  },
+  {
+    "id": "billing-0003",
+    "input": "i need help to check bill #12588",
+    "expected_category": "billing",
+    "expected_summary": "Customer has a question about an invoice.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_invoice"
+  },
+  {
+    "id": "billing-0004",
+    "input": "want help giving a quick look at my invoice #12588",
+    "expected_category": "billing",
+    "expected_summary": "Customer has a question about an invoice.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_invoice"
+  },
+  {
+    "id": "billing-0005",
+    "input": "I don't know how I could see the early termination penalties",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to know the cancellation fee before cancelling.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_cancellation_fee"
+  },
+  {
+    "id": "billing-0006",
+    "input": "I don't know how to get refunds",
+    "expected_category": "billing",
+    "expected_summary": "Customer is requesting a refund.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "get_refund"
+  },
+  {
+    "id": "billing-0007",
+    "input": "I want help giving a quick look at my bill from Mei Lin",
+    "expected_category": "billing",
+    "expected_summary": "Customer has a question about an invoice.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_invoice"
+  },
+  {
+    "id": "billing-0008",
+    "input": "what do I need to do to download my invoice #12588?",
+    "expected_category": "billing",
+    "expected_summary": "Customer is requesting a copy of an invoice.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "get_invoice"
+  },
+  {
+    "id": "billing-0009",
+    "input": "can you help me solve a problem with online payment?",
+    "expected_category": "billing",
+    "expected_summary": "Customer is reporting a problem with a payment.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "payment_issue"
+  },
+  {
+    "id": "billing-0010",
+    "input": "I can't find the cancellation charges",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to know the cancellation fee before cancelling.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_cancellation_fee"
+  },
+  {
+    "id": "billing-0011",
+    "input": "I am trying to see your allowed payment modalities",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to know what payment methods are accepted.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_payment_methods"
+  },
+  {
+    "id": "billing-0012",
+    "input": "checking invoice from James Whitfield",
+    "expected_category": "billing",
+    "expected_summary": "Customer has a question about an invoice.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_invoice"
+  },
+  {
+    "id": "billing-0013",
+    "input": "help me knowing if there are any updates on the refund",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to check the status of a refund already requested.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "track_refund"
+  },
+  {
+    "id": "billing-0014",
+    "input": "how do I download the goddamn invoice from James Whitfield?",
+    "expected_category": "billing",
+    "expected_summary": "Customer is requesting a copy of an invoice.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "get_invoice"
+  },
+  {
+    "id": "billing-0015",
+    "input": "assistance to see if there are any news on the reimbursement",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to check the status of a refund already requested.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "track_refund"
+  },
+  {
+    "id": "billing-0016",
+    "input": "i need help to see the cancellation penalty",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to know the cancellation fee before cancelling.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_cancellation_fee"
+  },
+  {
+    "id": "billing-0017",
+    "input": "i expect a reimbursement of $250.0 dollars",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to check the status of a refund already requested.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "track_refund"
+  },
+  {
+    "id": "billing-0018",
+    "input": "help me to checkl what payment options are allowed",
+    "expected_category": "billing",
+    "expected_summary": "Customer wants to know what payment methods are accepted.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "check_payment_methods"
+  },
+  {
+    "id": "billing-0019",
+    "input": "I do not know what I need to do to look for bill #37777",
+    "expected_category": "billing",
+    "expected_summary": "Customer has a question about an invoice.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "check_invoice"
+  },
+  {
+    "id": "billing-0020",
+    "input": "I want to report errors with payment, can I get some help?",
+    "expected_category": "billing",
+    "expected_summary": "Customer is reporting a problem with a payment.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "payment_issue"
+  },
+  {
+    "id": "account-0021",
+    "input": "pudate platinum account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0022",
+    "input": "want help to change to the Free Tier account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0023",
+    "input": "editing personal  account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0024",
+    "input": "modifying ingormation on Business account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0025",
+    "input": "help using the personal profile",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0026",
+    "input": "help me use the gold profile",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0027",
+    "input": "change data on family account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0028",
+    "input": "I don't need the gold account, help me close it",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to delete their account.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "delete_account"
+  },
+  {
+    "id": "account-0029",
+    "input": "editing information on account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0030",
+    "input": "I don't know what to do to notify fo sign-up problems",
+    "expected_category": "account",
+    "expected_summary": "Customer is having trouble completing account registration.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "registration_problems"
+  },
+  {
+    "id": "account-0031",
+    "input": "I lost my user PIN, what do I have to do to reset it?",
+    "expected_category": "account",
+    "expected_summary": "Customer is locked out and needs help recovering their password.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "recover_password"
+  },
+  {
+    "id": "account-0032",
+    "input": "i have a question about my freemium account termination",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to delete their account.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "delete_account"
+  },
+  {
+    "id": "account-0033",
+    "input": "help me retrieve my user  account pin",
+    "expected_category": "account",
+    "expected_summary": "Customer is locked out and needs help recovering their password.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "recover_password"
+  },
+  {
+    "id": "account-0034",
+    "input": "help me to use the family profile",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0035",
+    "input": "help me notify of errors with registrations",
+    "expected_category": "account",
+    "expected_summary": "Customer is having trouble completing account registration.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "registration_problems"
+  },
+  {
+    "id": "account-0036",
+    "input": "I'm looking for information about thbe forgotten access key",
+    "expected_category": "account",
+    "expected_summary": "Customer is locked out and needs help recovering their password.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "recover_password"
+  },
+  {
+    "id": "account-0037",
+    "input": "could i sawitch to the pro account",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0038",
+    "input": "I need to edit my bloody user, will you help me?",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to update their account details.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "edit_account"
+  },
+  {
+    "id": "account-0039",
+    "input": "how to use the premium profile",
+    "expected_category": "account",
+    "expected_summary": "Customer wants to switch to a different account type.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "switch_account"
+  },
+  {
+    "id": "account-0040",
+    "input": "need to inform of a sign-up error",
+    "expected_category": "account",
+    "expected_summary": "Customer is having trouble completing account registration.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "registration_problems"
+  },
+  {
+    "id": "general-0041",
+    "input": "I made a mistake, I have got to modify purchase ORD-622051",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to modify an existing order.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "change_order"
+  },
+  {
+    "id": "general-0042",
+    "input": "i try to see the statuis of purchase ORD-831656",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to track the status of an order.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "track_order"
+  },
+  {
+    "id": "general-0043",
+    "input": "help to check how long it takes for the package to asrrive",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to know how long delivery will take.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "delivery_period"
+  },
+  {
+    "id": "general-0044",
+    "input": "I have got to subscribe to the newsletter, how to do it?",
+    "expected_category": "general",
+    "expected_summary": "Customer has a question about newsletter subscription.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "newsletter_subscription"
+  },
+  {
+    "id": "general-0045",
+    "input": "can you help me cancelling order ORD-925178?",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to cancel an order.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "cancel_order"
+  },
+  {
+    "id": "general-0046",
+    "input": "I need to check how long the shipment takes",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to know how long delivery will take.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "delivery_period"
+  },
+  {
+    "id": "general-0047",
+    "input": "I am trying to file a reclamation against your company",
+    "expected_category": "general",
+    "expected_summary": "Customer is filing a complaint about their experience.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "complaint"
+  },
+  {
+    "id": "general-0048",
+    "input": "can I enter my secondary delivery address?",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to set up a shipping address.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "set_up_shipping_address"
+  },
+  {
+    "id": "general-0049",
+    "input": "could you help me write a review for your services?",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to leave a review or feedback.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "review"
+  },
+  {
+    "id": "general-0050",
+    "input": "need help to order several of ur artcle",
+    "expected_category": "general",
+    "expected_summary": "Customer needs help placing an order.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "place_order"
+  },
+  {
+    "id": "general-0051",
+    "input": "help to contact an agent",
+    "expected_category": "general",
+    "expected_summary": "Customer is asking to speak with a human agent.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "contact_human_agent"
+  },
+  {
+    "id": "general-0052",
+    "input": "talk with customer support",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to know how to reach customer service.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "contact_customer_service"
+  },
+  {
+    "id": "general-0053",
+    "input": "I no longer want order ORD-343601, how do I cancel it?",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to cancel an order.",
+    "expected_difficulty": "medium",
+    "notes": "Real negation structure -- tests the model isn't fooled by surface keywords.",
+    "source": "bitext-real",
+    "source_intent": "cancel_order"
+  },
+  {
+    "id": "general-0054",
+    "input": "how can I cancel order ORD-981294?",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to cancel an order.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "cancel_order"
+  },
+  {
+    "id": "general-0055",
+    "input": "i domt know how to buy several of ur item",
+    "expected_category": "general",
+    "expected_summary": "Customer needs help placing an order.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "place_order"
+  },
+  {
+    "id": "general-0056",
+    "input": "I have got to receive the corporate newsletter, I need help",
+    "expected_category": "general",
+    "expected_summary": "Customer has a question about newsletter subscription.",
+    "expected_difficulty": "medium",
+    "notes": "Real coordinated/compound sentence structure.",
+    "source": "bitext-real",
+    "source_intent": "newsletter_subscription"
+  },
+  {
+    "id": "general-0057",
+    "input": "I need help seeing what options for delivery you offer",
+    "expected_category": "general",
+    "expected_summary": "Customer is asking about available delivery options.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "delivery_options"
+  },
+  {
+    "id": "general-0058",
+    "input": "can uhelp me to talk to customer assistance",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to know how to reach customer service.",
+    "expected_difficulty": "medium",
+    "notes": "Real colloquial/informal phrasing.",
+    "source": "bitext-real",
+    "source_intent": "contact_customer_service"
+  },
+  {
+    "id": "general-0059",
+    "input": "could you help me shop a few of your article?",
+    "expected_category": "general",
+    "expected_summary": "Customer needs help placing an order.",
+    "expected_difficulty": "easy",
+    "notes": "Standard phrasing.",
+    "source": "bitext-real",
+    "source_intent": "place_order"
+  },
+  {
+    "id": "general-0060",
+    "input": "assiustance tracking purchase ORD-471885",
+    "expected_category": "general",
+    "expected_summary": "Customer wants to track the status of an order.",
+    "expected_difficulty": "hard",
+    "notes": "Contains a real typo/spelling error in the source text.",
+    "source": "bitext-real",
+    "source_intent": "track_order"
+  }
+]

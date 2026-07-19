@@ -1,0 +1,202 @@
+[
+  {
+    "id": "technical-0001",
+    "input": "I'm trying to clone some of my projects over to my server and its showing no repositories for me, it was just working fine yesterday. \n\nVersion 3.6.3 (x64)\n\nWin 11\n\nClick current repo\nAdd\nClone\nShows no repositories for me (I have 16)\n\n_No response_\n\n<img width=\"755\" height=\"517\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/05be7420-ea81-4ea4-a29a-3ed1c736bb8e\" />\n\n_No response_",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports GitHub Desktop shows no repositories when trying to clone, after it worked the day before.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22572"
+  },
+  {
+    "id": "technical-0002",
+    "input": "I have main worktree with featurebranch1 selected.\nI have worktree2 with featurebranch2 selected.\nI completed featurebranch2 so deleted the branch locally which switched worktree2 to main branch.\nI have just completed featurebranch1 in main worktree and trying to delete featurebranch1 locally.\n\nWhile trying to delete featurebranch1, i get error message: \n`error: cannot delete branch 'featurebranch1' used by worktree at 'path/of/main/worktree'`\nAfter I click ok, I get another error message: \n`fet",
+    "expected_category": "technical",
+    "expected_summary": "Customer is having trouble deleting a feature branch while using git worktrees.",
+    "expected_difficulty": "medium",
+    "notes": "Multi-step technical scenario; tests whether the model still tags it 'technical' despite the git jargon.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22569"
+  },
+  {
+    "id": "technical-0003",
+    "input": "I use command (git fetch origin) to fetch my worktree and it worked,no errors showed up,but Desktop shows Never Fetch,I click it and it still stay same.\nbut i restart it it became right\nthen restatrt again ,it will  show never fetch again\n\n3.6.2(x64)\n\nWindows 11\n\n1.create worktree\n2.click Never Fecth\n3.nothing happend\n4.use command to fetch git fetch origin\n5restart app right\n6restart app again Never fetch again\n\n[2026-07-09.desktop.production.log](https://github.com/user-attachments/files/29837",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the worktree toolbar shows 'never fetched' even though a fetch succeeded.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22520"
+  },
+  {
+    "id": "technical-0004",
+    "input": "While GitHub Desktop 3.6.1 → 3.6.2 auto-update:\n- Repositories present on disk.\n- Log showing 43 repositories loaded, then 0 repositories loaded after the update.\n- No repositories.json or backup available.\n\nVersion 3.6.2 (x64)\n\nWindows 11 Home Single Language\n\n_No response_\n\n[2026-07-08.desktop.production.log](https://github.com/user-attachments/files/29796630/2026-07-08.desktop.production.log)\n\n_No response_\n\n_No response_",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports all their repositories disappeared from GitHub Desktop after an app auto-update.",
+    "expected_difficulty": "hard",
+    "notes": "High-severity data-loss-sounding bug; good test that severity doesn't change the category.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22510"
+  },
+  {
+    "id": "technical-0005",
+    "input": "**The problem**\nWhen I start cloning/downloading a repository with GitHub Desktop and then delete/cancel the download before it finishes, the download continues in the background.\n\nEven though the repository no longer appears to be downloading in the UI, network activity continues and the clone eventually completes in the background.\n\n**Expected behavior**\nCancelling or removing the repository while it is still downloading should immediately stop the clone process and terminate any associated ne",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports that cancelling a repository clone does not actually stop the download.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22478"
+  },
+  {
+    "id": "technical-0006",
+    "input": "Middle button clicks are treated as left button clicks, e.g. selecting/unselecting hunks of code to commit.\n\nVersion 3.5.12 (x64)\n\nWindows 11\n\n1. Click a file in Changes tab.\n2. Click the middle button when the cursor is above the line number\n3. See the line unselected\n\n_No response_\n\nhttps://github.com/user-attachments/assets/55c2200e-e07d-402e-9a9a-405273931377\n\n_No response_",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports that middle mouse button clicks are incorrectly treated as left clicks when selecting code hunks.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22393"
+  },
+  {
+    "id": "technical-0007",
+    "input": "After updating to 3.6.0 in noticed that scrolling in the Repository list (which includes over 40 non-GitHub Repositories) occasionally doesn't allow to scroll up or down and is kinda \"sticky\" to the current position. It seems to  move a few inches up and down, but gets stuck in the original location after i stopped scrolling.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the repository list occasionally gets stuck and won't scroll after updating the app.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22387"
+  },
+  {
+    "id": "technical-0008",
+    "input": "Clicking the \"Generate commit message\" Copilot button fails with the following error:\n`CAPIError: 400 The requested model is not supported. (Request ID: 048A:2D5B15:295C72C:2B9A494:6A3C182F)`\n\nVersion 3.6.0 (arm64)\n\nmacOS Tahoe 26.5.1\n\n1. Sign in with a GitHub account that has Copilot enabled\n2. Stage one or more files with changes\n3.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports an error when trying to generate a commit message with the built-in Copilot feature.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22380"
+  },
+  {
+    "id": "technical-0009",
+    "input": "When a user is not logged in, clicking the pull request refresh button produces no visible response. The button is not disabled and no error message is shown — it simply does nothing.\n\nThe refresh button should either:\n- Be disabled/hidden when no user is logged in, or\n- Display an error/prompt indicating that login is required\n\nNote: Whatever behavior should communicate to the user.\n\nThe button appears interactive (not disabled) but clicking it has no effect and provides no feedback to the user",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the pull request refresh button does nothing when they are not logged in, with no error shown.",
+    "expected_difficulty": "medium",
+    "notes": "Silent failure (no error message) -- tests whether 'nothing happens' still reads as technical, not general.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22365"
+  },
+  {
+    "id": "technical-0010",
+    "input": "We've received multiple reports recently about GitHub Desktop and other applications built on Electron crashing at startup. We're still investigating this but [users have reported that they've been able to resolve this](https://github.com/desktop/desktop/issues/22184#issuecomment-4592111909) by removing a faulty SID (security identifier) from their %LOCALAPPDATA% folder that was seemingly left there by Google Antigravity.\n\nWe'll be keeping this issue pinned as we gather more information about th",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the app crashes on startup for users who also have a specific third-party tool installed.",
+    "expected_difficulty": "hard",
+    "notes": "Root cause involves a third-party interaction; tests generalization beyond simple single-app bugs.",
+    "source": "github-real",
+    "source_url": "https://github.com/desktop/desktop/issues/22237"
+  },
+  {
+    "id": "technical-0011",
+    "input": "I found out that you can copy the query executed by a button if you select it with your mouse while using ctrl+c. This is not a major issue but still isn't intended behavior.\nSignal 8.8.0 on Ubuntu 26. Reproducible at will.\n\n1. G to any chat\n2. Click with your mouse\n3. Don't release the click and hover above the microphone button near the message bar\n4. Press ctrl+c to copy\n5. Paste the content\n\nYour clipboard shouldn't have changed\n\n6.",
+    "expected_category": "technical",
+    "expected_summary": "Customer found a minor UI bug where selecting a button while pressing ctrl+c copies internal button data instead of expected content.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7903"
+  },
+  {
+    "id": "technical-0012",
+    "input": "When clicking the button to set up desktop backups, Signal Desktop quits with an unhandled promise rejection.\n\n1. Open Preferences\n2. Go to Backups\n3. Under Desktop backups, click Set up\n\nSome kind of user interaction to set up backups, rather than a crash.\n\nUnhandled promise rejection\n\nError: Internal error\n    at [REDACTED]\\node_modules\\@signalapp\\windows-ucv\\dist\\index.js:43:31\n\nApp Version: 8.12.0\nOS: win32\n\n_No response_\n\n8.12.0 ⁨production\n\nWindows 11 Pro Version\t25H2 build 26200.8457 Wind",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the app crashes when trying to set up desktop backups.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7902"
+  },
+  {
+    "id": "technical-0013",
+    "input": "I've had multiple instances recently where pinned messages do not appear as pinned on Signal Desktop. In these cases, I believe I had not opened Signal Desktop in a day or so since pinning the messages.\n\n1. Pin a message in a chat on phone\n2. Wait a day\n3. Open signal desktop, observe that the messages sync but not the pin status\n\nThe pinned message state should sync across platforms\n\nIn some cases, Signal Desktop does not sync the pinned message status from the phone\n\n_No response_\n\n8.7.0\n\nmacO",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports pinned messages don't always show as pinned after not opening the app for a day or so.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7841"
+  },
+  {
+    "id": "technical-0014",
+    "input": "Signal on Desktop 8.7.0 (Ubuntu 24.04), but it's not new with this version\nSignal on Android 8.7.3 (GrapheneOS, Pixel 9)\n\nFor a while now I've been getting many repeated alerts for things like \"requested to join\", \"left group\", \"safety number has changed\".  These repeats are only appearing in the desktop, not on the phone.\n\nUnknown.\n\nSingle alert.\n\nMany alerts.\n\n<img width=\"358\" height=\"831\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/fe9c68da-ed62-44ec-b2cd-d46866d5491d\" />\n\n8.7",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports getting excessive repeated admin alerts in group chat threads.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7838"
+  },
+  {
+    "id": "technical-0015",
+    "input": "The Signal Desktop app displays Chinese names with only the last character in the first name, even the first name is correctly set in the phone's contact book and synced.\n\n1. Add an entry containing a Chinese name in the contacts\n2. Sync the contact and open Signal app on the phone to confirm the name shows correctly on the phone\n3.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports Chinese contact names are displayed incorrectly, showing only part of the name.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7786"
+  },
+  {
+    "id": "technical-0016",
+    "input": "On an account which have been set with autosuppress timer, a bunch of message transfered to new contacts (from a group chat) are without autosuppress timer. After consulting with other people, this situation have happened before. It seems specific to messages transfered to new contacts.\n\n1. account set with autosuppression timer\n2. previously existing messages\n3. a group chat with unknown account\n4.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the auto-delete timer setting isn't being applied to messages forwarded to new contacts from a group chat.",
+    "expected_difficulty": "hard",
+    "notes": "Multi-clause technical scenario describing a specific reproduction path.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7765"
+  },
+  {
+    "id": "technical-0017",
+    "input": "![Image](https://github.com/user-attachments/assets/7929d217-2f25-42d6-97e8-232f6275f754)\n\n1. The error shown in the attached screenshot pops up when I click on the signal icon \n2. Stopped working after following update\n\n![Image](https://github.com/user-attachments/assets/61cbbbc1-79d3-4240-9333-514cdb2bf2c2)\n\nRunning signal on a window \nEdition\tWindows 11 Pro\nVersion\t25H2\nInstalled on\t‎2/‎25/‎2025\nOS build\t26200.8037\nExperience\tWindows Feature Experience Pack 1000.26100.300.0\n\nSignal should ope",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the app stopped working on Windows after a recent Windows security update.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7761"
+  },
+  {
+    "id": "technical-0018",
+    "input": "Since Signal Desktop 7.89.0, an audible “hiss” appears during calls when audio input is very quiet or only low-level background noise is present. It’s unclear if this is exactly when noise reduction engages, but it consistently happens at very low input levels.\n\n1. Start a voice or video call.\n2. Stop speaking or speak very quietly.\n3.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports hearing an audible hiss during calls when background audio is very quiet, starting from a specific app version.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7719"
+  },
+  {
+    "id": "technical-0019",
+    "input": "After ending calls in Signal Desktop, the microphone access indicator appears with the ringing and stays on indefinitely. This started happening about 2 weeks ago.\n\nIn waybar, the indicator shows that Signal (`Ringrtc`) is still accessing the microphone even after the call has ended. In previous versions, the microphone access would be released immediately when the call ended.\n\n<img width=\"204\" height=\"96\" alt=\"waybar microphone indicator\" src=\"https://github.com/user-attachments/assets/5ee4cc1d",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports the microphone indicator stays on indefinitely after ending calls, a recent regression.",
+    "expected_difficulty": "medium",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7678"
+  },
+  {
+    "id": "technical-0020",
+    "input": "CTRL-SHIFT-L has been the keyboard shortcut to open the chat menu for several years.\n\nSince 7.81, this keyboard shortcut no longer works.\n\nInitially reported in https://community.signalusers.org/t/beta-feedback-for-the-upcoming-desktop-7-82-release/73328/5?u=hiqua and ack-ed by the team, but opening here in case a contributor feels like fixing this.\n\n1. Go to any chat\n2.",
+    "expected_category": "technical",
+    "expected_summary": "Customer reports a keyboard shortcut that used to open the chat menu no longer works after an update.",
+    "expected_difficulty": "easy",
+    "notes": "Real GitHub issue, cleaned of template scaffolding.",
+    "source": "github-real",
+    "source_url": "https://github.com/signalapp/Signal-Desktop/issues/7666"
+  }
+]

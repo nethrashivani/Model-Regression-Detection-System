@@ -1,0 +1,275 @@
+[
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326494,
+    "title": "Archived Agent Host sessions should be read-only in editor chat",
+    "cleaned_body": "Archived Agent Host sessions are read-only in the Agents window, but editor-window chat surfaces should provide the same behavior.\n\nWhen an archived session is opened in the editor:\n\n- show an \"Archived sessions are read-only\" banner\n- hide the composer and preserve keyboard focus\n- prevent send, retry, fork, follow-up, checkpoint restore, and other mutating actions\n- react when archive or chat interactivity state changes\n\nImplemented by [#326455](https://github.com/microsoft/vscode/pull/326455).\n\n(Written by Copilot)",
+    "url": "https://github.com/microsoft/vscode/issues/326494"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326418,
+    "title": "Slow model download feedback",
+    "cleaned_body": "I tried to use dictation, and it seems like there was something wrong with the first-run experience. I pressed the keyboard shortcut several times, nothing happened. I clicked the button, nothing happened. Then after ~10 seconds, a progress notification showed up that said it was downloading the model. But the progress bar was full and it never moved. That stayed for a second or two. Then dictation activated. I would suspect that it was downloading the whole time but the progress wasn't triggered until the end. Or we were waiting on a different slow task. If you can tell me how to delete the downloaded model I'd be happy to try again.",
+    "url": "https://github.com/microsoft/vscode/issues/326418"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326417,
+    "title": "Dictation immediately fills in odd text",
+    "cleaned_body": "I thought I filed this before, but I can't find it. I activate dictation, and immediately, before I can even say anything, the preview transcript starts cycling through a bunch of strange phrases like this.\n\n<img width=\"479\" height=\"76\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/f8d141a7-65a3-474e-ab2a-7c0e1925ef33\" />\n\nSeems like the model is too sensitive silence or something but I hope you can provide that feedback because it's very off-putting, especially if I want to collect my thoughts for a moment before I start talking.",
+    "url": "https://github.com/microsoft/vscode/issues/326417"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326416,
+    "title": "Agent host: unwanted implicit repo attachments",
+    "cleaned_body": "https://vscodeteam.slack.com/archives/C0AKR94N3CK/p1783987765942489\n\n<img width=\"480\" height=\"232\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ff7f1cd1-0120-4909-b68e-53ce1b94e4bf\" />",
+    "url": "https://github.com/microsoft/vscode/issues/326416"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326260,
+    "title": "When models arrive late the first available model is selected as the default in Agents Window",
+    "cleaned_body": "As reported by Harald\n\n- The BYOK models arrived early\n- I.e. there was just one model in the model picker\n- Other models (including Auto) arrived 12s later\n- Hence the BYOK was setup as the selected item\n- What made this worse is, the existing code then seems to mark this as a user selection and treas this as the default for all new Agent Window sessions\n\nhttps://vscodeteam.slack.com/archives/C0AKR94N3CK/p1784227881592419\n\n<img width=\"898\" height=\"782\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/90a33517-4c0f-4b2e-87e2-62f1bccb3698\" />",
+    "url": "https://github.com/microsoft/vscode/issues/326260"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326258,
+    "title": "Weird double \"approvals\" overflow",
+    "cleaned_body": "They don't do anything. WOuld this be you @justschen? \n<img width=\"382\" height=\"135\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/7cb17044-e1d2-4880-b326-6e2ed5822d6f\" />\n\nagents window",
+    "url": "https://github.com/microsoft/vscode/issues/326258"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326092,
+    "title": "VSCode crashes on Linux as soon as it starts with codex extension pane",
+    "cleaned_body": "Does this issue occur when all extensions are disabled?: Yes/No\n\n- VS Code Version: 1.129.0\n- OS Version: Linux Mint 22.3 Cinnamon\n\nSteps to Reproduce:\n\n1. I just click the VSCode icon and appears that VSCode error with \"The Window terminated unexpectedly (reason: 'clean-exit', code:'0').\n2. I proceed to close or open a new window in VSCode and crashes again and again.",
+    "url": "https://github.com/microsoft/vscode/issues/326092"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326060,
+    "title": "Browser confusion",
+    "cleaned_body": "Agents window, AH\n\n- Agent ran an `az` command and used openBrowserPage to open the auth page\n- I never saw the browser page in the UI\n- I noticed \"Browser Page\" attachments on my requests",
+    "url": "https://github.com/microsoft/vscode/issues/326060"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326051,
+    "title": "Subagent progress out of sync",
+    "cleaned_body": "I sometimes see subagents rendered still in progress, but if I open the subagent chat, it appears complete\n\n<img width=\"387\" height=\"129\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/cd05cc8f-a160-4945-b220-b3cb6d8490e6\" />\n\n<img width=\"994\" height=\"290\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/f91a4502-6dde-4edd-9714-bd9105b2440b\" />",
+    "url": "https://github.com/microsoft/vscode/issues/326051"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326043,
+    "title": "Slack MCP pops blocking notification on every message",
+    "cleaned_body": "* Configure in `~/.copilot/mcp.json`:\n\n* Try to use the Agents Window\n* :bug: Each and every message shows an error\n* noticed on @andysharman's machine\n\n<img width=\"946\" height=\"788\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/436fc408-e36e-4b94-a17d-de9c3e04ac97\" />",
+    "url": "https://github.com/microsoft/vscode/issues/326043"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326034,
+    "title": "Voice mode: manually typed text is dropped when turning on voice mode in a new chat",
+    "cleaned_body": "In a new chat, if I type part of my query and paste an image, then turn on voice mode and add to my query via speech, the query is sent but only contains the voice part — the manually typed text is no longer included.\n\nSteps to reproduce:\n1. Open a new chat (agents window).\n2. Type some text into the input and paste an image.\n3. Turn on voice mode.\n4. Add to the query by speaking, then send.\n\nExpected: the sent query includes both the manually typed text and the voice-dictated portion.\nActual: the sent query only contains the voice part; the manually typed text is dropped.\n\nReported by Alexandru Dima.",
+    "url": "https://github.com/microsoft/vscode/issues/326034"
+  },
+  {
+    "repo": "microsoft/vscode",
+    "issue_number": 326033,
+    "title": "Voice mode: pressing voice mode button while a session is in progress does nothing (spins continuously)",
+    "cleaned_body": "Pressing the voice mode button while a session is in progress does not do anything — the button just spins continuously.\n\nExpected: clarify expected behavior when a session is in progress, and either activate voice mode or provide feedback instead of spinning indefinitely.\nActual: continuous spinning with no effect.\n\nReported by Anthony Kim.",
+    "url": "https://github.com/microsoft/vscode/issues/326033"
+  },
+  {
+    "repo": "obsproject/obs-studio",
+    "issue_number": 13640,
+    "title": "Sources right click context menu inconsistent when source is hidden",
+    "cleaned_body": "Windows 11\n\n_No response_\n\n32.2.0-rc1\n\n_No response_\n\nhttps://obsproject.com/logs/hpMbuFbyqFQ4AEOv\n\n_No response_\n\nright click to consistently open the right click context menu even if the source is hidden\n\nright click context menu is inconsistent on hidden sources, often not opening at all but occasionally it will\n\n1. Make a source hidden\n2. Right click the source\n\nhttps://github.com/user-attachments/assets/2801d7de-9897-486f-a1df-78b7cc0ed235",
+    "url": "https://github.com/obsproject/obs-studio/issues/13640"
+  },
+  {
+    "repo": "obsproject/obs-studio",
+    "issue_number": 13607,
+    "title": "NVIDIA Audio Effects SDK does not load",
+    "cleaned_body": "Windows 11\n\n_No response_\n\n32.2.0-beta2\n\n_No response_\n\nhttps://obsproject.com/logs/S99FcVMJrvDyeezB\n\n_No response_\n\nNVIDIA Audio Effects SDK should be properly loaded and enable the NVIDIA audio effect filters.\n\nThe NVIDIA Audio Effects SDK fails to load properly.\n\nNotably (maybe?), if you have an older version of the SDK installed, it is found and provides an error saying it is outdated:\n\nAfter updating from the outdated SDK to 1.6.1.2, it no longer can be found by OBS.\n\n1. Install NVIDIA Audio Effects SDK version 1.6.1.2\n2. Run OBS Studio 32.2 Beta2\n3. Try to add an NVIDIA Audio Effects filter\n4. Observe the filters are missing as the SDK could not be loaded\n\nThis may have been caused by https://github.com/obsproject/obs-studio/pull/11569",
+    "url": "https://github.com/obsproject/obs-studio/issues/13607"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22572,
+    "title": "Github Desktop showing no repositories for me when cloning",
+    "cleaned_body": "I'm trying to clone some of my projects over to my server and its showing no repositories for me, it was just working fine yesterday. \n\nVersion 3.6.3 (x64)\n\nWin 11\n\nClick current repo\nAdd\nClone\nShows no repositories for me (I have 16)\n\n_No response_\n\n<img width=\"755\" height=\"517\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/05be7420-ea81-4ea4-a29a-3ed1c736bb8e\" />\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22572"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22569,
+    "title": "Problem deleting feature branch while using worktree",
+    "cleaned_body": "I have main worktree with featurebranch1 selected.\nI have worktree2 with featurebranch2 selected.\nI completed featurebranch2 so deleted the branch locally which switched worktree2 to main branch.\nI have just completed featurebranch1 in main worktree and trying to delete featurebranch1 locally.\n\nWhile trying to delete featurebranch1, i get error message: \n`error: cannot delete branch 'featurebranch1' used by worktree at 'path/of/main/worktree'`\nAfter I click ok, I get another error message: \n`fetal: 'main' is already used by worktree at 'path/of/worktree2'`\n\nSo, the problem seems that two worktrees cannot be in same branch.\nI have to switch main worktree to new featurebranch3 and then only delete featurebranch1.\n\n3.6.3 (x64)\n\nWindows 11\n\n_No response_\n\n_No response_\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22569"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22520,
+    "title": "worktree toolbar shows never fetched but it does fetched",
+    "cleaned_body": "I use command (git fetch origin) to fetch my worktree and it worked,no errors showed up,but Desktop shows Never Fetch,I click it and it still stay same.\nbut i restart it it became right\nthen restatrt again ,it will  show never fetch again\n\n3.6.2(x64)\n\nWindows 11\n\n1.create worktree\n2.click Never Fecth\n3.nothing happend\n4.use command to fetch git fetch origin\n5restart app right\n6restart app again Never fetch again\n\n[2026-07-09.desktop.production.log](https://github.com/user-attachments/files/29837553/2026-07-09.desktop.production.log)\n\n_No response_\n\n<img width=\"1284\" height=\"105\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/f9a60d45-fbd0-415b-b20e-54b15ba02cc5\" />",
+    "url": "https://github.com/desktop/desktop/issues/22520"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22510,
+    "title": "Github Update Issue",
+    "cleaned_body": "While GitHub Desktop 3.6.1 → 3.6.2 auto-update:\n- Repositories present on disk.\n- Log showing 43 repositories loaded, then 0 repositories loaded after the update.\n- No repositories.json or backup available.\n\nVersion 3.6.2 (x64)\n\nWindows 11 Home Single Language\n\n_No response_\n\n[2026-07-08.desktop.production.log](https://github.com/user-attachments/files/29796630/2026-07-08.desktop.production.log)\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22510"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22478,
+    "title": "Cancelling a repository clone does not stop the download",
+    "cleaned_body": "**The problem**\nWhen I start cloning/downloading a repository with GitHub Desktop and then delete/cancel the download before it finishes, the download continues in the background.\n\nEven though the repository no longer appears to be downloading in the UI, network activity continues and the clone eventually completes in the background.\n\n**Expected behavior**\nCancelling or removing the repository while it is still downloading should immediately stop the clone process and terminate any associated network activity.\n\n**Actual behavior**\nThe clone process continues in the background even after the download has been cancelled or the repository has been removed from GitHub Desktop.\n\n3.6.2\n\nWindows 11\n\n1. Start cloning a repository.\n2. Before the clone finishes, remove/cancel the download.\n3. Observe that the download continues in the background.\n\n_No response_\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22478"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22426,
+    "title": "Create commit message with copilot",
+    "cleaned_body": "Request session.create failed with message: Reasoning effort is not supported when using the \"auto\" model.Request session.create failed with message: Reasoning effort is not supported when using the \"auto\" model.\n\nVersion 3.6.1 (x64)\n\nWindows 11\n\n_No response_\n\n_No response_\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22426"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22393,
+    "title": "Middle button click selects/unselects hunk",
+    "cleaned_body": "Middle button clicks are treated as left button clicks, e.g. selecting/unselecting hunks of code to commit.\n\nVersion 3.5.12 (x64)\n\nWindows 11\n\n1. Click a file in Changes tab.\n2. Click the middle button when the cursor is above the line number\n3. See the line unselected\n\n_No response_\n\nhttps://github.com/user-attachments/assets/55c2200e-e07d-402e-9a9a-405273931377\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22393"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22387,
+    "title": "Version 3.6.0 (x64): Repository list - After updating to 3.6.0 the \"scrolling\" occasionally gets stuck",
+    "cleaned_body": "After updating to 3.6.0 in noticed that scrolling in the Repository list (which includes over 40 non-GitHub Repositories) occasionally doesn't allow to scroll up or down and is kinda \"sticky\" to the current position. It seems to  move a few inches up and down, but gets stuck in the original location after i stopped scrolling. This doesn't seem to happen every time, but i didn't experience this behaviour in the old version.\n\nI unfortunatly cannot provide public screenshots or videos, but it seems to happen more often when my mouse is over the \"other\" repositories and not the \"recent/GitHub\" part of the list.\n\n3.6.0\n\nWindows 11 25H2\n\n1. Open GitHub Desktop\n2. Open the \"Repository list\"\n3. Use the mouse scroll button to scroll up or down the list\n\n_No response_\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22387"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22380,
+    "title": "CAPIError: 400 The requested model is not supported when generating commit messages with Copilot",
+    "cleaned_body": "Clicking the \"Generate commit message\" Copilot button fails with the following error:\n`CAPIError: 400 The requested model is not supported. (Request ID: 048A:2D5B15:295C72C:2B9A494:6A3C182F)`\n\nVersion 3.6.0 (arm64)\n\nmacOS Tahoe 26.5.1\n\n1. Sign in with a GitHub account that has Copilot enabled\n2. Stage one or more files with changes\n3. Click the Copilot \"Generate commit message\" button in the Changes panel\n\n_No response_\n\n_No response_\n\nRoot cause:\nThe hardcoded default model ID `'gpt-5-mini'` in `app/src/lib/stores/copilot-store.ts:51` is rejected by the Copilot API (CAPI) with a 400 status:",
+    "url": "https://github.com/desktop/desktop/issues/22380"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22377,
+    "title": "build.ts: Missing copilot-cli package variant",
+    "cleaned_body": "Command: `yarn build:prod` (for packaging in NixOS)\n\nRelevant output:\n\n3.6.0\n\nLinux 7.1.1, NixOS, 26.11 (Zokor), 26.11.20260608.58f43c5\n\n`nix-build https://github.com/nixos/nixpkgs/archive/5ba495f4e55cfe068b17ac54852b5a721b089d41.tar.gz -A github-desktop`\n\nFull build log:\n\n[tmp.ghLDVVcg69.gz](https://github.com/user-attachments/files/29291963/tmp.ghLDVVcg69.gz)\n\n_No response_\n\nI think `\"linuxmusl\"` is missing in the list [here](https://github.com/desktop/desktop/blob/release-3.6.0/script/licenses/license-overrides.ts#L68)",
+    "url": "https://github.com/desktop/desktop/issues/22377"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22365,
+    "title": "Pull request refresh button is non-responsive when user is not logged in",
+    "cleaned_body": "When a user is not logged in, clicking the pull request refresh button produces no visible response. The button is not disabled and no error message is shown — it simply does nothing.\n\nThe refresh button should either:\n- Be disabled/hidden when no user is logged in, or\n- Display an error/prompt indicating that login is required\n\nNote: Whatever behavior should communicate to the user.\n\nThe button appears interactive (not disabled) but clicking it has no effect and provides no feedback to the user.\n\n1. Open GitHub Desktop without being logged in to any account\n2. Navigate to a pull request view\n3. Click the refresh button\n4. Observe that nothing happens — no loading indicator, no error, no feedback",
+    "url": "https://github.com/desktop/desktop/issues/22365"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22362,
+    "title": "[UI][Options][Git] Alert 'invalid name...'",
+    "cleaned_body": "<img width=\"827\" height=\"634\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/dfcc65e5-9004-4ee1-8713-e816078b5a89\" />\n\n3.5.12 x64\n\nw11\n\n_No response_\n\n_No response_\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/desktop/desktop/issues/22362"
+  },
+  {
+    "repo": "desktop/desktop",
+    "issue_number": 22237,
+    "title": "Desktop crashes on startup for users with Google Antigravity installed",
+    "cleaned_body": "We've received multiple reports recently about GitHub Desktop and other applications built on Electron crashing at startup. We're still investigating this but [users have reported that they've been able to resolve this](https://github.com/desktop/desktop/issues/22184#issuecomment-4592111909) by removing a faulty SID (security identifier) from their %LOCALAPPDATA% folder that was seemingly left there by Google Antigravity.\n\nWe'll be keeping this issue pinned as we gather more information about this.\n\nSee \nhttps://github.com/electron/electron/issues/51761\nhttps://github.com/desktop/desktop/issues/22184#issuecomment-4578976768\nhttps://www.reddit.com/r/google_antigravity/comments/1tiqpcv/antigravity_20_update_broke_my_electron_apps/\n\nRelated issues (may need to be closed and directed here)\n\n- https://github.com/desktop/desktop/issues/22225\n- https://github.com/desktop/desktop/issues/22208",
+    "url": "https://github.com/desktop/desktop/issues/22237"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7903,
+    "title": "Selecting a button while ctrl+c allows to copy the query of the button",
+    "cleaned_body": "I found out that you can copy the query executed by a button if you select it with your mouse while using ctrl+c. This is not a major issue but still isn't intended behavior.\nSignal 8.8.0 on Ubuntu 26. Reproducible at will.\n\n1. G to any chat\n2. Click with your mouse\n3. Don't release the click and hover above the microphone button near the message bar\n4. Press ctrl+c to copy\n5. Paste the content\n\nYour clipboard shouldn't have changed\n\n6. you should have in your clipboard: \n\n    \n      document\n        .querySelector('.app-loading-screen')\n        .addEventListener('dblclick', () => window.showDebugLog());\n    \n\n    \n    \n      window.startApp();\n    \n\n_No response_\n\n8.8.0\n\nLinux Ubuntu 26\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7903"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7902,
+    "title": "Crash on setting up desktop backups",
+    "cleaned_body": "When clicking the button to set up desktop backups, Signal Desktop quits with an unhandled promise rejection.\n\n1. Open Preferences\n2. Go to Backups\n3. Under Desktop backups, click Set up\n\nSome kind of user interaction to set up backups, rather than a crash.\n\nUnhandled promise rejection\n\nError: Internal error\n    at [REDACTED]\\node_modules\\@signalapp\\windows-ucv\\dist\\index.js:43:31\n\nApp Version: 8.12.0\nOS: win32\n\n_No response_\n\n8.12.0 ⁨production\n\nWindows 11 Pro Version\t25H2 build 26200.8457 Windows Feature Experience Pack 1000.26100.304.0\n\n8.12.4\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7902"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7841,
+    "title": "Pinned messages sync unreliable",
+    "cleaned_body": "I've had multiple instances recently where pinned messages do not appear as pinned on Signal Desktop. In these cases, I believe I had not opened Signal Desktop in a day or so since pinning the messages.\n\n1. Pin a message in a chat on phone\n2. Wait a day\n3. Open signal desktop, observe that the messages sync but not the pin status\n\nThe pinned message state should sync across platforms\n\nIn some cases, Signal Desktop does not sync the pinned message status from the phone\n\n_No response_\n\n8.7.0\n\nmacOS Sequoia\n\n8.7\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7841"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7838,
+    "title": "Wildly excessive repeated admin alerts in group threads",
+    "cleaned_body": "Signal on Desktop 8.7.0 (Ubuntu 24.04), but it's not new with this version\nSignal on Android 8.7.3 (GrapheneOS, Pixel 9)\n\nFor a while now I've been getting many repeated alerts for things like \"requested to join\", \"left group\", \"safety number has changed\".  These repeats are only appearing in the desktop, not on the phone.\n\nUnknown.\n\nSingle alert.\n\nMany alerts.\n\n<img width=\"358\" height=\"831\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/fe9c68da-ed62-44ec-b2cd-d46866d5491d\" />\n\n8.7.0\n\nUbuntu 24.04\n\n8.7.3\n\nDesktop debug:\nhttps://debuglogs.org/desktop/8.7.0/f6166ed0d114c62f692810b05416e2a0c40ca06f4c8e47f287799121920d83c6.gz",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7838"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7786,
+    "title": "Chinese names incorrectly shown",
+    "cleaned_body": "The Signal Desktop app displays Chinese names with only the last character in the first name, even the first name is correctly set in the phone's contact book and synced.\n\n1. Add an entry containing a Chinese name in the contacts\n2. Sync the contact and open Signal app on the phone to confirm the name shows correctly on the phone\n3. Open Signal Desktop\n\nThe names should display as the first name set in the contact\n\nThe characters are trimmed to the last one, all words before it omitted.\n\n![Image](https://github.com/user-attachments/assets/76dab59e-be3d-4ec0-89a9-fba32e90ec2b)\n\n<img width=\"322\" height=\"155\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/a0a8f0bd-379f-4ee9-94f6-a7e013cf6e0d\" />\n\n![Image](https://github.com/user-attachments/assets/dd8a4507-c058-4ec1-8563-6380873cca5a)\n\n8.3.0\n\nWindows 11\n\n8.3.4\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7786"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7765,
+    "title": "Autodelete timer fail on messages transfer",
+    "cleaned_body": "On an account which have been set with autosuppress timer, a bunch of message transfered to new contacts (from a group chat) are without autosuppress timer. After consulting with other people, this situation have happened before. It seems specific to messages transfered to new contacts.\n\n1. account set with autosuppression timer\n2. previously existing messages\n3. a group chat with unknown account\n4. transfer message to new contacts\n\nAs for any new conversation initied by this account, messages should be automatically timed for autosuppression, as per the parameters set for automatic timer on new conversations.\n\nFirst message on these new conversations (which are transfered from a previous message) are not timed for autosuppression.\n\n_No response_\n\n8.2.0 (now, but probably updated since bug happened)\n\ndebian\n\n8.2. (now, but probably updated since bug happened)\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7765"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7761,
+    "title": "Signal stopped working on Windows 11 after the latest windows security update",
+    "cleaned_body": "![Image](https://github.com/user-attachments/assets/7929d217-2f25-42d6-97e8-232f6275f754)\n\n1. The error shown in the attached screenshot pops up when I click on the signal icon \n2. Stopped working after following update\n\n![Image](https://github.com/user-attachments/assets/61cbbbc1-79d3-4240-9333-514cdb2bf2c2)\n\nRunning signal on a window \nEdition\tWindows 11 Pro\nVersion\t25H2\nInstalled on\t‎2/‎25/‎2025\nOS build\t26200.8037\nExperience\tWindows Feature Experience Pack 1000.26100.300.0\n\nSignal should open\n\nError shown in the attached screenshot \n\n_No response_\n\n8.2.0\n\nWindows 11 Version 25H2\n\n8.2.0\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7761"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7719,
+    "title": "Audible “hiss” during low-level background audio (since 7.89.0)",
+    "cleaned_body": "Since Signal Desktop 7.89.0, an audible “hiss” appears during calls when audio input is very quiet or only low-level background noise is present. It’s unclear if this is exactly when noise reduction engages, but it consistently happens at very low input levels.\n\n1. Start a voice or video call.\n2. Stop speaking or speak very quietly.\n3. Keep faint background noise present (room noise, mic self-noise).\n\nQuiet input or near-silence should not introduce audible artifacts.\n\nA constant hiss/noise becomes audible during quiet moments.\n\n_No response_\n\n7.89.0\n\nWindows 11\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7719"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7694,
+    "title": "Pressing ⌘F to show collapsed sidebar → click on chat folder does not work",
+    "cleaned_body": "Pressing <code><kbd>⌘</kbd></code><code><kbd>F</kbd></code> to show collapsed sidebar → click on chat folder does not work.\n\n1. Press <code><kbd>⌘</kbd></code><code><kbd>F</kbd></code>\n2. Click on a chat folder\n\nChat folder closes on it's own, nothing else happens.\n\nClicking on it should take you to the chat folder in question.\n\n_No response_\n\n`7.87.0` production\n\nmacOS `14.7.6`, likely affects other versions\n\nN/A\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7694"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7678,
+    "title": "(regression) Microphone access indicator stays on after ending calls",
+    "cleaned_body": "After ending calls in Signal Desktop, the microphone access indicator appears with the ringing and stays on indefinitely. This started happening about 2 weeks ago.\n\nIn waybar, the indicator shows that Signal (`Ringrtc`) is still accessing the microphone even after the call has ended. In previous versions, the microphone access would be released immediately when the call ended.\n\n<img width=\"204\" height=\"96\" alt=\"waybar microphone indicator\" src=\"https://github.com/user-attachments/assets/5ee4cc1d-2ca4-462c-af61-15c15ac3de4a\" />\n\n**Signal version:** 7.85.0  \n**OS:** Arch Linux",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7678"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7667,
+    "title": "Can't disable auto-updater when it's not supported",
+    "cleaned_body": "The function `#checkForUpdates` uses `isNotUpdatable` as a source of truth for whether the signal-desktop is updatable:\n\nhttps://github.com/signalapp/Signal-Desktop/blob/74a77383aeb7ce584d9e71a798ccb93710d42165/ts/updater/common.main.ts#L555-L560\n\nHowever, the function `isAutoDownloadUpdatesSupported` performs additional check for the OS:\n\nhttps://github.com/signalapp/Signal-Desktop/blob/74a77383aeb7ce584d9e71a798ccb93710d42165/ts/types/Settings.std.ts#L65-L73\n\nThis means that 3rd-party packages which are not updatable periodically check for updates and it's not possible to disable it.\n\nInstall a non-updatable version of Signal.\n\nThe auto-updater is disabled or it's possible to disable it.\n\nAuto-updater is still working.\n\n_No response_\n\n7.83.0\n\nLinux\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7667"
+  },
+  {
+    "repo": "signalapp/Signal-Desktop",
+    "issue_number": 7666,
+    "title": "\"Open chat menu\" keyboard shortcut no longer works",
+    "cleaned_body": "CTRL-SHIFT-L has been the keyboard shortcut to open the chat menu for several years.\n\nSince 7.81, this keyboard shortcut no longer works.\n\nInitially reported in https://community.signalusers.org/t/beta-feedback-for-the-upcoming-desktop-7-82-release/73328/5?u=hiqua and ack-ed by the team, but opening here in case a contributor feels like fixing this.\n\n1. Go to any chat\n2. Press CTRL-SHIFT-L\n\nThis should open the chat menu.\n\nIt doesn't do anything.\n\n_No response_\n\n7.84.0-beta.2\n\nDebian\n\n_No response_\n\n_No response_",
+    "url": "https://github.com/signalapp/Signal-Desktop/issues/7666"
+  }
+]
