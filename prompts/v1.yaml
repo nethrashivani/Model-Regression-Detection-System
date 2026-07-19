@@ -13,6 +13,14 @@ system_prompt: |
   - The summary must be a single sentence, no more than 25 words.
   - Do not include any text outside the required JSON output.
 
+# Groq's free-tier model catalog changes fairly often (models get deprecated
+# with short notice). If this model 400s as unavailable, check the current
+# list at https://console.groq.com/docs/models and swap the name below --
+# nothing else needs to change.
+model: "openai/gpt-oss-20b"
+temperature: 0.0
+max_tokens: 200
+
 few_shot_examples:
   - input: |
       Hi, I was charged twice for my subscription this month. Can you refund the duplicate charge?

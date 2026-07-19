@@ -44,8 +44,25 @@ scripts/
 ```bash
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # add your OPENAI_API_KEY
+cp .env.example .env   # add your API key -- see "LLM provider" below
 ```
+
+## LLM provider
+
+The classifier talks to whichever backend you set `LLM_PROVIDER` to. All
+three speak the OpenAI-compatible chat completions API, so switching is a
+one-line env var change, no code changes:
+
+| Provider | `.env` setting | Notes |
+|---|---|---|
+| **Groq** (default) | `LLM_PROVIDER=groq` + `GROQ_API_KEY=...` | Free, no credit card. Get a key at [console.groq.com](https://console.groq.com). Works unmodified in the Phase 5 GitHub Actions pipeline. |
+| OpenAI | `LLM_PROVIDER=openai` + `OPENAI_API_KEY=...` | Paid, but the most capable if you want to swap the model up later. |
+| Ollama | `LLM_PROVIDER=ollama` | Fully local/offline, no API key. Run `ollama pull llama3.1` and `ollama serve` first, and update `model:` in `prompts/v1.yaml` to match. |
+
+Groq's free-tier model catalog changes with some regularity — if the model
+in `prompts/v1.yaml` starts 400ing as unavailable, check the current list at
+[console.groq.com/docs/models](https://console.groq.com/docs/models) and
+swap the `model:` field. Nothing else needs to change.
 
 ## Running
 
@@ -53,8 +70,7 @@ cp .env.example .env   # add your OPENAI_API_KEY
 # Unit tests (no API key needed)
 pytest tests/ -v
 
-# Manual smoke test against the real OpenAI API
-export OPENAI_API_KEY=sk-...
+# Manual smoke test against the real LLM
 python scripts/smoke_test.py
 ```
 
@@ -67,3 +83,4 @@ Create a new file `prompts/v2.yaml` (never edit `v1.yaml` in place — each vers
 - **Prompt as data, not code.** The system prompt, few-shot examples, and even model/temperature settings live in versioned YAML rather than in Python. This makes "what changed between two eval runs" a diffable file change, which is the entire premise of the CI/CD analogy this project is built on.
 - **Pydantic contracts on both sides.** `PromptConfig` validates what goes *into* the LLM call; `EmailClassification` validates what comes *out*. A malformed prompt file or an LLM response that doesn't match the schema fails loudly and immediately, rather than silently corrupting eval results downstream.
 - **Async classifier built in from day one**, even though Phase 1 only needs the sync version. The eval runner in Phase 3 needs to batch requests across the whole golden dataset — retrofitting async later would mean touching this function's call sites everywhere.
+- **LLM provider is a runtime config, not a code branch.** Groq, OpenAI, and Ollama all speak the OpenAI-compatible chat completions API, so `src/llm_provider.py` just swaps `base_url` + API key based on `LLM_PROVIDER`. Chose Groq as the default over Ollama specifically because Phase 5 needs this pipeline to run inside GitHub Actions — a local Ollama model would mean pulling multi-GB weights on every CI run, while Groq is just a secret.

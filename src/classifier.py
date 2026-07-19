@@ -5,23 +5,33 @@ Deliberately kept as a single, simple function with the prompt injected as a
 parameter (PromptConfig) rather than hardcoded. This is what lets the eval
 pipeline run the *same* function against many prompt versions and diff the
 results — the function is the harness, PromptConfig is the variable.
+
+LLM provider (Groq / OpenAI / Ollama) is chosen via LLM_PROVIDER env var --
+see src/llm_provider.py. All three speak the OpenAI-compatible API, so no
+branching is needed here beyond which client to construct.
 """
 
 from __future__ import annotations
 
 import json
-import os
+import re
 
 from openai import AsyncOpenAI, OpenAI
 from pydantic import ValidationError
 
+from src.llm_provider import get_api_key, get_provider_config
 from src.models import EmailClassification, PromptConfig
 
 _JSON_INSTRUCTION = (
     "\n\nRespond with ONLY a JSON object of the form "
     '{"category": "<billing|technical|account|general>", "summary": "<string>"}. '
-    "No other text."
+    "No other text, no markdown code fences, no explanation."
 )
+
+# Some open-weight models wrap JSON in ```json ... ``` fences or add a
+# sentence before/after despite instructions not to. Extract the first
+# {...} block as a fallback before giving up.
+_JSON_BLOCK = re.compile(r"\{.*\}", re.DOTALL)
 
 
 def _build_messages(email_text: str, config: PromptConfig) -> list[dict]:
@@ -38,12 +48,21 @@ def _build_messages(email_text: str, config: PromptConfig) -> list[dict]:
 
 
 def _parse_response(raw_content: str) -> EmailClassification:
+    data = None
     try:
         data = json.loads(raw_content)
-    except json.JSONDecodeError as e:
+    except json.JSONDecodeError:
+        match = _JSON_BLOCK.search(raw_content)
+        if match:
+            try:
+                data = json.loads(match.group(0))
+            except json.JSONDecodeError:
+                pass
+
+    if data is None:
         raise ValueError(
             f"Model did not return valid JSON. Raw output: {raw_content!r}"
-        ) from e
+        )
 
     try:
         return EmailClassification(**data)
@@ -54,9 +73,19 @@ def _parse_response(raw_content: str) -> EmailClassification:
         ) from e
 
 
+def _make_sync_client() -> OpenAI:
+    cfg = get_provider_config()
+    return OpenAI(api_key=get_api_key(cfg), base_url=cfg.base_url)
+
+
+def _make_async_client() -> AsyncOpenAI:
+    cfg = get_provider_config()
+    return AsyncOpenAI(api_key=get_api_key(cfg), base_url=cfg.base_url)
+
+
 def classify_email(email_text: str, config: PromptConfig) -> EmailClassification:
     """Synchronous single-email classification. Used for quick manual testing."""
-    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    client = _make_sync_client()
     response = client.chat.completions.create(
         model=config.model,
         temperature=config.temperature,
@@ -79,7 +108,7 @@ async def classify_email_async(
     connection per request.
     """
     owns_client = client is None
-    client = client or AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    client = client or _make_async_client()
     try:
         response = await client.chat.completions.create(
             model=config.model,

@@ -3,9 +3,17 @@ Quick manual sanity check for Phase 1: loads v1.yaml, classifies a couple of
 sample emails, and prints the result. Not a substitute for the golden dataset
 eval in Phase 2/3 — just confirms the wiring works before you build on top of it.
 
-Usage:
-    export OPENAI_API_KEY=sk-...
+Usage (Groq, the default -- free, no credit card):
+    export LLM_PROVIDER=groq
+    export GROQ_API_KEY=gsk_...
     python scripts/smoke_test.py
+
+Usage (Ollama, fully local/offline):
+    ollama pull llama3.1   # once
+    ollama serve            # keep running in another terminal
+    export LLM_PROVIDER=ollama
+    python scripts/smoke_test.py
+    # also change prompts/v1.yaml's `model:` to match what you pulled
 """
 
 from __future__ import annotations
