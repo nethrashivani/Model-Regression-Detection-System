@@ -68,3 +68,18 @@ def get_api_key(config: ProviderConfig) -> str:
             f"the {config.api_key_env} environment variable to be set."
         )
     return key
+
+
+def get_extra_body(model: str) -> dict:
+    """
+    Provider/model-specific extra API fields, passed through the OpenAI SDK's
+    extra_body kwarg (rejected as unknown fields by strict APIs otherwise).
+
+    Groq's gpt-oss models are reasoning models -- they spend hidden tokens
+    "thinking" before answering. For a simple 4-way classification task we
+    don't need deep reasoning, so capping it to "low" leaves more of
+    max_tokens for the actual JSON output and responds faster.
+    """
+    if model.startswith("openai/gpt-oss"):
+        return {"reasoning_effort": "low"}
+    return {}

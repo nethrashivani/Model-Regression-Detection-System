@@ -17,9 +17,16 @@ system_prompt: |
 # with short notice). If this model 400s as unavailable, check the current
 # list at https://console.groq.com/docs/models and swap the name below --
 # nothing else needs to change.
+#
+# gpt-oss-20b is a reasoning model: it spends tokens on hidden internal
+# "thinking" before writing the actual JSON answer, and that thinking counts
+# against max_tokens. 200 was enough for a plain instruction-following model
+# but leaves no room for reasoning tokens here, causing a 400
+# ("max completion tokens reached before generating a valid document").
+# 600 gives it enough headroom to think AND finish the JSON.
 model: "openai/gpt-oss-20b"
 temperature: 0.0
-max_tokens: 200
+max_tokens: 600
 
 few_shot_examples:
   - input: |

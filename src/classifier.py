@@ -19,7 +19,7 @@ import re
 from openai import AsyncOpenAI, OpenAI
 from pydantic import ValidationError
 
-from src.llm_provider import get_api_key, get_provider_config
+from src.llm_provider import get_api_key, get_extra_body, get_provider_config
 from src.models import EmailClassification, PromptConfig
 
 _JSON_INSTRUCTION = (
@@ -92,6 +92,7 @@ def classify_email(email_text: str, config: PromptConfig) -> EmailClassification
         max_tokens=config.max_tokens,
         response_format={"type": "json_object"},
         messages=_build_messages(email_text, config),
+        extra_body=get_extra_body(config.model),
     )
     raw_content = response.choices[0].message.content or ""
     return _parse_response(raw_content)
@@ -116,6 +117,7 @@ async def classify_email_async(
             max_tokens=config.max_tokens,
             response_format={"type": "json_object"},
             messages=_build_messages(email_text, config),
+            extra_body=get_extra_body(config.model),
         )
         raw_content = response.choices[0].message.content or ""
         return _parse_response(raw_content)
