@@ -71,6 +71,8 @@ swap the `model:` field. Nothing else needs to change.
 pytest tests/ -v
 
 # Manual smoke test against the real LLM
+# (just needs a real key in .env -- no manual export/$env: needed,
+#  python-dotenv loads .env automatically, works the same on any OS)
 python scripts/smoke_test.py
 ```
 

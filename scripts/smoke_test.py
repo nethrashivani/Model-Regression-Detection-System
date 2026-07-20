@@ -4,14 +4,15 @@ sample emails, and prints the result. Not a substitute for the golden dataset
 eval in Phase 2/3 — just confirms the wiring works before you build on top of it.
 
 Usage (Groq, the default -- free, no credit card):
-    export LLM_PROVIDER=groq
-    export GROQ_API_KEY=gsk_...
-    python scripts/smoke_test.py
+    1. Put GROQ_API_KEY=gsk_... in your .env file (see .env.example)
+    2. python scripts/smoke_test.py
+    (python-dotenv loads .env automatically -- no manual export/$env: needed,
+    works the same on bash, zsh, and PowerShell)
 
 Usage (Ollama, fully local/offline):
     ollama pull llama3.1   # once
     ollama serve            # keep running in another terminal
-    export LLM_PROVIDER=ollama
+    Set LLM_PROVIDER=ollama in .env
     python scripts/smoke_test.py
     # also change prompts/v1.yaml's `model:` to match what you pulled
 """

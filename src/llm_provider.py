@@ -17,6 +17,13 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 
+from dotenv import load_dotenv
+
+# Loads .env into the environment on import, so GROQ_API_KEY / OPENAI_API_KEY
+# work the same way whether you're on bash, zsh, or PowerShell -- no manual
+# `export`/`$env:` needed as long as a .env file exists next to this project.
+load_dotenv()
+
 
 @dataclass(frozen=True)
 class ProviderConfig:
