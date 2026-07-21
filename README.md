@@ -6,10 +6,37 @@ A CI/CD-style pipeline that continuously tests an LLM-powered feature against a 
 
 - [x] **Phase 1: LLM feature under test** — customer support email classifier, versioned prompts, typed interface contract
 - [x] **Phase 2: Golden dataset** — 80 real, hand-verified test cases (see `golden_dataset/README.md` for full provenance)
-- [ ] Phase 3: Evaluation engine
-- [ ] Phase 4: Alerting and reporting
+- [x] **Phase 3: Evaluation engine** — async batch runner, multi-dimensional scoring, run-over-run diffing, SQLite history, HTML reports
+- [ ] Phase 4: Slack alerting + drift detection
 - [ ] Phase 5: CI/CD integration
 - [ ] Phase 6: Portfolio polish
+
+## Running an eval (Phase 3)
+
+```bash
+python scripts/run_eval.py
+```
+
+This classifies all 80 golden dataset cases against `prompts/v1.yaml`, scores each one, diffs against the previous run (if any), prints a terminal summary, and writes an HTML report to `reports/run_<id>.html`.
+
+**Scoring, per case:**
+- **Category match** — exact match against `expected_category` (binary)
+- **Summary quality** — a second LLM call grades the summary 1-5 against the reference (`src/eval/judge.py`)
+- **Latency** and **token usage** — measured per request
+
+**Run-over-run diffing** (`src/eval/scoring.py`) — every run is compared against the most recent previous run stored in `eval_history.db`:
+- Pass-rate delta, per-category pass-rate delta
+- Specific case IDs that flipped pass→fail (regressions) or fail→pass (improvements)
+- Status: `warning` if pass rate drops >3%, `critical` if it drops >8% (exits non-zero, so Phase 5's CI can block merge on it)
+
+```bash
+# Useful flags
+python scripts/run_eval.py --prompt-version v2         # eval a different prompt version
+python scripts/run_eval.py --concurrency 3              # lower if you hit rate limits
+python scripts/run_eval.py --judge-model llama-3.1-8b-instant  # use a different judge model
+```
+
+`eval_history.db` (gitignored — it's local run history, not source) is what makes diffing possible across separate invocations. Delete it to reset history.
 
 ## Golden dataset (Phase 2)
 

@@ -67,5 +67,19 @@ class EmailClassification(BaseModel):
         return v
 
 
+class GoldenCase(BaseModel):
+    """One entry from golden_dataset/golden_dataset_v1.json — the eval unit."""
+
+    id: str
+    input: str
+    expected_category: Category
+    expected_summary: str
+    expected_difficulty: Literal["easy", "medium", "hard"]
+    notes: str = ""
+    source: str = ""
+    source_intent: str | None = None
+    source_url: str | None = None
+
+
 # Resolve the forward reference in FewShotExample.output
 FewShotExample.model_rebuild()
