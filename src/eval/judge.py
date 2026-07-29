@@ -16,6 +16,7 @@ import re
 
 from openai import AsyncOpenAI
 
+from src.eval.retry import with_retries
 from src.llm_provider import get_extra_body
 
 _JUDGE_SYSTEM_PROMPT = """You are grading whether a generated summary captures the same meaning as a reference summary.
@@ -67,17 +68,20 @@ async def judge_summary(
         f"Generated summary to grade:\n{actual_summary}"
     )
     try:
-        response = await client.chat.completions.create(
-            model=judge_model,
-            temperature=0.0,
-            max_tokens=300,
-            response_format={"type": "json_object"},
-            messages=[
-                {"role": "system", "content": _JUDGE_SYSTEM_PROMPT},
-                {"role": "user", "content": user_content},
-            ],
-            extra_body=get_extra_body(judge_model),
-        )
+        async def _call():
+            return await client.chat.completions.create(
+                model=judge_model,
+                temperature=0.0,
+                max_tokens=300,
+                response_format={"type": "json_object"},
+                messages=[
+                    {"role": "system", "content": _JUDGE_SYSTEM_PROMPT},
+                    {"role": "user", "content": user_content},
+                ],
+                extra_body=get_extra_body(judge_model),
+            )
+
+        response = await with_retries(_call)
     except Exception as e:  # judge failures shouldn't crash the whole eval run
         return 0, f"judge call failed: {e}"
 

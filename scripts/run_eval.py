@@ -60,7 +60,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run the golden-dataset eval.")
     parser.add_argument("--prompt-version", default="v1")
     parser.add_argument("--dataset-version", default="v1")
-    parser.add_argument("--concurrency", type=int, default=5, help="max concurrent API calls")
+    parser.add_argument("--concurrency", type=int, default=2, help="max concurrent API calls (lower = safer against rate limits)")
     parser.add_argument("--judge-model", default=None, help="defaults to the same model being evaluated")
     args = parser.parse_args()
 

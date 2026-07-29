@@ -21,13 +21,14 @@ from openai import AsyncOpenAI
 from src.classifier import _build_messages, _parse_response  # reuse the exact prompt-building/parsing logic under test
 from src.eval import storage
 from src.eval.judge import judge_summary
+from src.eval.retry import with_retries
 from src.eval.scoring import CaseOutcome, diff_runs
 from src.golden_dataset_loader import load_golden_dataset
 from src.llm_provider import get_api_key, get_extra_body, get_provider_config
 from src.models import GoldenCase, PromptConfig
 from src.prompt_loader import load_prompt_config
 
-DEFAULT_CONCURRENCY = 5
+DEFAULT_CONCURRENCY = 2  # gpt-oss-20b's free-tier TPM limit is tight (observed 429s at concurrency=5)
 REPORTS_DIR = Path(__file__).resolve().parent.parent.parent / "reports"
 
 
@@ -55,14 +56,17 @@ async def _run_one_case(
     async with semaphore:
         start = time.perf_counter()
         try:
-            response = await client.chat.completions.create(
-                model=config.model,
-                temperature=config.temperature,
-                max_tokens=config.max_tokens,
-                response_format={"type": "json_object"},
-                messages=_build_messages(case.input, config),
-                extra_body=get_extra_body(config.model),
-            )
+            async def _call():
+                return await client.chat.completions.create(
+                    model=config.model,
+                    temperature=config.temperature,
+                    max_tokens=config.max_tokens,
+                    response_format={"type": "json_object"},
+                    messages=_build_messages(case.input, config),
+                    extra_body=get_extra_body(config.model),
+                )
+
+            response = await with_retries(_call)
             latency_ms = (time.perf_counter() - start) * 1000
             raw_content = response.choices[0].message.content or ""
             parsed = _parse_response(raw_content)  # raises ValueError on bad JSON/schema

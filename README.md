@@ -32,9 +32,11 @@ This classifies all 80 golden dataset cases against `prompts/v1.yaml`, scores ea
 ```bash
 # Useful flags
 python scripts/run_eval.py --prompt-version v2         # eval a different prompt version
-python scripts/run_eval.py --concurrency 3              # lower if you hit rate limits
+python scripts/run_eval.py --concurrency 1              # even more conservative if you still hit rate limits
 python scripts/run_eval.py --judge-model llama-3.1-8b-instant  # use a different judge model
 ```
+
+**On rate limits:** each case makes 2 API calls (classify + judge), so a full run is ~160 calls. `openai/gpt-oss-20b`'s free-tier limit is fairly tight, so `--concurrency` defaults to 2 and every call retries automatically on a 429 with exponential backoff (`src/eval/retry.py`) before ever being counted as a failure — a rate limit is "try again shortly," not a real model failure, and the first version of this runner conflated the two, which corrupted the pass-rate numbers with rate-limit noise instead of real accuracy.
 
 `eval_history.db` (gitignored — it's local run history, not source) is what makes diffing possible across separate invocations. Delete it to reset history.
 
