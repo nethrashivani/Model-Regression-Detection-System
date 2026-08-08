@@ -13,13 +13,18 @@ from __future__ import annotations
 import asyncio
 from typing import Awaitable, Callable, TypeVar
 
-from openai import APIStatusError, RateLimitError
+from openai import APIConnectionError, APIStatusError, APITimeoutError, RateLimitError
 
 T = TypeVar("T")
 
 DEFAULT_MAX_RETRIES = 6
 DEFAULT_BASE_DELAY = 5.0  # seconds
 DEFAULT_MAX_DELAY = 60.0  # seconds
+
+# Connection errors and timeouts are transient network blips, not rate limits --
+# they don't come with a Retry-After header, so back off much faster.
+CONNECTION_ERROR_BASE_DELAY = 2.0
+CONNECTION_ERROR_MAX_DELAY = 15.0
 
 
 def _extract_retry_after(exc: APIStatusError) -> float | None:
@@ -58,4 +63,10 @@ async def with_retries(
             wait = _extract_retry_after(e)
             if wait is None:
                 wait = min(base_delay * (2 ** (attempt - 1)), max_delay)
+            await asyncio.sleep(wait)
+        except (APIConnectionError, APITimeoutError):
+            attempt += 1
+            if attempt > max_retries:
+                raise
+            wait = min(CONNECTION_ERROR_BASE_DELAY * (2 ** (attempt - 1)), CONNECTION_ERROR_MAX_DELAY)
             await asyncio.sleep(wait)

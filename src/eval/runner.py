@@ -29,6 +29,7 @@ from src.models import GoldenCase, PromptConfig
 from src.prompt_loader import load_prompt_config
 
 DEFAULT_CONCURRENCY = 2  # gpt-oss-20b's free-tier TPM limit is tight (observed 429s at concurrency=5)
+DEFAULT_JUDGE_MODEL = "llama-3.1-8b-instant"  # separate, lighter model -- doesn't compete with the classifier's model for the same tight quota
 REPORTS_DIR = Path(__file__).resolve().parent.parent.parent / "reports"
 
 
@@ -117,7 +118,7 @@ async def run_eval(
     """Runs the full eval and returns a dict with run_id, diff, case_results, run_meta."""
     config = load_prompt_config(prompt_version)
     cases = load_golden_dataset(dataset_version)
-    judge_model = judge_model or config.model
+    judge_model = judge_model or DEFAULT_JUDGE_MODEL
 
     provider_cfg = get_provider_config()
     client = AsyncOpenAI(api_key=get_api_key(provider_cfg), base_url=provider_cfg.base_url)

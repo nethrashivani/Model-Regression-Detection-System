@@ -61,7 +61,7 @@ def main() -> None:
     parser.add_argument("--prompt-version", default="v1")
     parser.add_argument("--dataset-version", default="v1")
     parser.add_argument("--concurrency", type=int, default=2, help="max concurrent API calls (lower = safer against rate limits)")
-    parser.add_argument("--judge-model", default=None, help="defaults to the same model being evaluated")
+    parser.add_argument("--judge-model", default=None, help="defaults to llama-3.1-8b-instant (separate rate-limit quota from the model under test)")
     args = parser.parse_args()
 
     result = asyncio.run(
